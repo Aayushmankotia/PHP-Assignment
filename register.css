@@ -1,0 +1,86 @@
+
+  body{
+    text-align: center;
+}
+
+form{
+    border:solid green 2px ;
+    width:18%;
+    height:40%;
+    font-size:x-large;
+    text-align: left;
+    border-radius: 30px;
+    overflow: hidden;
+    margin: 4% auto;
+
+    
+}
+fieldset{
+    margin: 0px;
+    padding-top: 5px;
+    text-align: center;
+    background-color: rgb(46, 131, 84);
+    color:white;
+    border:0px;
+    height:30px;
+     font-weight: 900;
+  
+}
+input{
+    width:95.3%;
+    margin:2px auto 5px auto ;
+    height:30px;
+    border-radius:25px;
+    padding-left:10px;
+    font-size:large;
+    
+}
+label{
+    padding-left:5px;
+    color: rgb(8, 65, 17);
+}
+.btn{
+    height:40px;
+    width:50%;
+    margin:2%;
+    border-radius: 25px;
+    margin: 15px auto;
+    background-image: linear-gradient(45deg, rgb(20, 104, 55), rgb(117, 228, 117));
+    border: solid white 2px;
+    color:white;
+    font-size:x-large;
+
+}
+.division{
+    text-align: center;
+}
+
+
+a{
+    text-decoration: none;
+
+}
+.col{
+    background-image: linear-gradient(5deg, rgb(20, 104, 55), rgb(117, 228, 117));
+    padding: 10px;
+    border: none;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+pre{
+    color:white;
+}
+p.para {
+    color: red;
+    font-size: x-large;
+    font-weight: 800;
+    font-family: 'Times New Roman', Times, serif;
+}
+.tp{
+    height:150px;
+    margin:4px;
+    width:92.6%;
+    padding-top:0px;
+
+}

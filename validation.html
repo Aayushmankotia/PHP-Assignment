@@ -1,0 +1,171 @@
+<?php
+$dbhost="localhost";
+$dbuser="root";
+$dbpass="";
+$dbname="datacollection_php";
+$con=mysqli_connect($dbhost,$dbuser,$dbpass,$dbname);
+if(!$con)
+{
+die('could not connect');
+}
+else
+{
+echo "<i>"."connected"."</i>"."<br>";
+}
+//mysqli_close($con);
+
+
+$sql="CREATE TABLE student(
+id INT(6) PRIMARY KEY,
+First_Name VARCHAR(30) NOT NULL,
+Last_Name VARCHAR(30),
+Father_Name VARCHAR(30),
+Email_id VARCHAR(20),
+Address VARCHAR(50),
+Gander VARCHAR(10),
+Course VARCHAR(20),
+Attachment VARCHAR(50)
+)";
+if(mysqli_query($con,$sql))
+{
+echo "<i>"."Table created"."</i>"."<br>";
+}
+else
+{
+echo "<i>"."error for creating table"."</i>"."<br>";
+}
+//mysqli_close($con);
+?>
+
+
+<?php
+$id=$iderror=$fnameerror=$lnameerror=$ferror=$email=$address=$gender=$checkboxerror=$checkbox="";
+$firstname=$fathername=$emailerror=$addresserror=$gendererror=$file=$fileerror="";
+
+if(isset($_POST['submit']))
+{
+if(empty($_POST["id"])){
+$iderror="ID is required";
+}
+else {
+$id=$_POST['id'];
+}
+if(empty($_POST["firstname"])){
+$fnameerror="Firstname is required";
+}
+else {
+$firstname=$_POST["firstname"];
+if (!preg_match("/^[a-zA-Z-' ]*$/",$firstname)) { 
+$fnameerror="Invalid name";}
+}
+
+$lastname=$_POST['lname'];
+if (!preg_match("/^[a-zA-Z-' ]*$/",$lastname)) { 
+$lnameerror="Invalid name";
+}
+
+if(empty($_POST["fname"])){
+$ferror="Fathername is required";
+}
+else {
+$fathername=$_POST['fname'];
+if (!preg_match("/^[a-zA-Z-' ]*$/",$fathername)) { 
+$ferror="Invalid name";}
+}
+
+if(empty($_POST["email"])){
+$emailerror="Email is required";
+}
+else {
+$email=$_POST['email'];
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
+$emailerror="Invalid email format";}
+}
+
+if(empty($_POST["address"])){
+$addresserror="Address is required";
+}
+else {
+$address=$_POST['address'];
+}
+
+if(empty($_POST["sex"])){
+$gendererror="Gender is required";
+}
+else {
+$gender=$_POST['sex'];
+}
+
+if(empty($_POST["course"])){
+$checkboxerror="Course is required";
+}
+else {
+$checkbox=$_POST['course'];
+}
+
+if(empty($_POST["attach"])){
+$fileerror="Upload document";
+}
+else {
+$file=$_POST['attach'];
+}
+
+if($iderror=="" && $fnameerror=="" && $lnameerror=="" && $ferror=="" && $emailerror=="" && $addresserror=="" && $gendererror=="" && $fileerror=="" && $checkboxerror=="")
+{
+$sql1="insert into student (id,First_Name,Last_Name,Father_Name,Email_id,Address,Gander,Course,Attachment)
+values('$id','$firstname','$lastname','$fathername','$email','$address','$gender','$checkbox','$file')";
+
+
+if(mysqli_query($con,$sql1))
+{
+echo "<i>"."Record inserted"."</i>"."<br>";
+}
+else
+{
+echo "<i>"."error for inserting value"."</i>"."<br>";
+}
+mysqli_close($con);
+}
+}
+?>
+
+
+<html>
+<head>
+<title>form</title>
+<style>
+i{color:red;}
+</style>
+</head>
+<body>
+<form method="post">
+<fieldset>
+<legend><h2>DETAILS</h2></legend>
+<input type="number" name="id">Enter your ID <i>* <?php echo $iderror;?></i><br><br>
+<input type="text" name="firstname" Size="25" maxlength="30">First Name
+<i>* <?php echo $fnameerror;?></i> <br><br>
+<input type="text" name="lname" Size="25">Last name
+<i><?php echo $lnameerror;?></i><br><br>
+<input type="text" name="fname" Size="25">Father Name<i> *
+<?php echo $ferror;?></i><br><br>
+<input type="text" name="email" Size="25">Email-id<i> * 
+<?php echo $emailerror;?></i><br><br>
+<textarea cols="80" rows="5" name="address" value="address">
+</textarea>Address<i> * <?php echo $addresserror;?></i><br><br>
+Gender<i> * <?php echo $gendererror;?></i><br>
+<input type="radio" name="sex" value="Male" checked>Male<br>
+<input type="radio" name="sex" value="Female">Female<br>
+<input type="radio" name="sex" value="Other">Other<br><br>
+Select courses you have done <i>* <?php echo $checkboxerror;?></i><br> 
+<input type="checkbox" name="course"value="BCA">BCA<br>
+<input type="checkbox" name="course"value="MCA">MCA<br>
+<input type="checkbox" name="course"value="MBA">MBA<br><br>
+<input type="file" name="attach" size="30" accept="image/jpg">
+<i>* <?php echo $fileerror;?></i><br><br>
+<input type = "submit" name="submit" value="Submit">
+<input type="Reset" value="Reset">
+</fieldset>
+</form>
+
+</body>
+</html>
