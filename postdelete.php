@@ -36,3 +36,4 @@ $conn->close();
 <a href="textpost.php" >BACK</a>
 </body>
 </html>
+
