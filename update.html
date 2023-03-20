@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+</head>
+<body>
+
+    <form action="#" method ="POST">
+        <fieldset>UPDATE FORM</fieldset>
+        <table>
+            <tr>
+                <td> <label for="name"> NAME  </label>
+                </td>
+            
+                <td>  <input type="text" placeholder="NAME  (capital characters)" name="name" id="name" value="" > <?php echo "<span>". $nameerr."<span>";?> 
+            
+            </td>
+            </tr>
+
+            <tr> 
+                <td>  
+                    <label for="email"> EMAIL </label>
+                </td>
+                <td>   
+                    <input type="email" placeholder="EMAIL" name="email"   id="email"><?php echo "<span>". $emailerr."<span>";?> 
+                </td>
+            </tr>
+
+            <tr> 
+                <td>   
+                    <label for="pass">PASSWORD  </label>
+                </td>
+                <td>    
+                    <input type="password" placeholder="PASSWORD" name="pass"  id="pass"  ><?php echo "<span>". $passerr."<span>";?> 
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="phone">PHONE NO. </label>
+                </td>
+                <td>   
+                    <input type="tel" placeholder="PHONE NUMBER" name="phone" id="phone" ><?php echo "<span>". $phoneerr."<span>";?>
+                </td>
+            </tr>
+
+            <tr>
+                <td> 
+                    <label for="occup">OCCUPATION</label>
+                </td>
+                <td>      
+                    <input type="text" placeholder="OCCUPATION" name="occupation" id="occup">
+                </td>
+            </tr>
+
+            <tr> 
+                <td>  
+                    <label for="city ">CITY  </label> 
+                </td>
+                <td>  
+                    <select name="city" >
+                        <option value="SHIMLA" >SHIMLA</option>
+                        <option value="DHARAMSHALA">DHARAMSHALA</option>
+                        <option value="PALAMPUR">PALAMPUR</option>
+                        <option value="KANGRA">KANGRA</option>
+                        <option value="BAIJNATH">BAIJNATH</option>
+                        <option value="NURPUR">NURPUR</option>
+                        <option value="DALHOUSIE">DALHOUSIE</option>
+                        <option value="NAHAN">NAHAN</option>
+                        
+                    </select>  
+                    <!-- <input type="text" placeholder="CITY" name="city" id="city"> -->
+                </td>
+            </tr>
+
+            <tr>
+                <td> 
+                    <label for ="pin"> PIN-CODE  </label>
+                </td>
+                <td>  
+                    <input type="text" placeholder="PIN" name="pin_code" id="pin" minlenght="6" maxlenght="6" ><?php echo "<span>". $pin_codeerr."<span>";?>
+                </td>
+            </tr>
+        
+        </table>
+        <div>
+            <input class= "btn" type="submit" name="submit" value="submit">
+        </div>
+        <div>
+            <a href="log.php">LOGIN</a>
+        </div>
+    </form>
+    
+</body>
+</html>
